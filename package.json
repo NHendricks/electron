@@ -1,0 +1,14 @@
+{
+  "name": "electron",
+  "author": "",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "build": "cd renderer && npm run build",
+    "package": "npm run build && electron-packager . my-app --overwrite --platform=win32 --arch=x64 --out=dist --prune=true --electron-version=28.1.0"
+  },
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-packager": "^17.1.0"
+  }
+}

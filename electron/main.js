@@ -3,7 +3,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 console.log("env:" + process.env.NODE_ENV + "!")
-const isDev = process.env.NODE_ENV.startsWith('development');
+const isDev = process.env.NODE_ENV?.startsWith('development');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -19,6 +19,7 @@ console.log("isdev:" + isDev)
   if (isDev) {
     win.loadURL('http://localhost:5173');
   } else {
+    console.log("path renderer:" + path.join(__dirname, '../renderer/dist/index.html'))
     win.loadFile(path.join(__dirname, '../renderer/dist/index.html'));
   }
 }
